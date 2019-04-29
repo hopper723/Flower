@@ -12,6 +12,7 @@
 		E51CF34922777A8700A00E5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E51CF34722777A8700A00E5D /* Main.storyboard */; };
 		E51CF34B22777A8B00A00E5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E51CF34A22777A8B00A00E5D /* Assets.xcassets */; };
 		E51CF34E22777A8B00A00E5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E51CF34C22777A8B00A00E5D /* LaunchScreen.storyboard */; };
+		E51CF3562277862100A00E5D /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E51CF3552277862100A00E5D /* FlowerClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		E51CF34A22777A8B00A00E5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E51CF34D22777A8B00A00E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E51CF34F22777A8B00A00E5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E51CF3552277862100A00E5D /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				E51CF34A22777A8B00A00E5D /* Assets.xcassets */,
 				E51CF34C22777A8B00A00E5D /* LaunchScreen.storyboard */,
 				E51CF34F22777A8B00A00E5D /* Info.plist */,
+				E51CF3552277862100A00E5D /* FlowerClassifier.mlmodel */,
 			);
 			path = Flower;
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E51CF3562277862100A00E5D /* FlowerClassifier.mlmodel in Sources */,
 				E51CF34622777A8700A00E5D /* ViewController.swift in Sources */,
 				E51CF34422777A8700A00E5D /* AppDelegate.swift in Sources */,
 			);
