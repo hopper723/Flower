@@ -19,15 +19,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LOf-1h-vYr">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="414"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LOf-1h-vYr" secondAttribute="height" multiplier="1:1" id="MdW-8h-sFh"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="l5q-av-4kj">
+                                <rect key="frame" x="10" y="512" width="394" height="374"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="LOf-1h-vYr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="kB5-dd-u5Q"/>
-                            <constraint firstItem="LOf-1h-vYr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lTk-XY-wsC"/>
-                            <constraint firstItem="LOf-1h-vYr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qnZ-8S-euu"/>
-                            <constraint firstItem="LOf-1h-vYr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zqn-0S-Si4"/>
+                            <constraint firstItem="LOf-1h-vYr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0Me-E9-miF"/>
+                            <constraint firstAttribute="bottom" secondItem="l5q-av-4kj" secondAttribute="bottom" constant="10" id="1nH-Pz-viI"/>
+                            <constraint firstItem="l5q-av-4kj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="One-Xs-7Hv"/>
+                            <constraint firstItem="LOf-1h-vYr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cSD-W2-Kc5"/>
+                            <constraint firstItem="LOf-1h-vYr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nN1-Hv-Y0b"/>
+                            <constraint firstItem="l5q-av-4kj" firstAttribute="top" secondItem="LOf-1h-vYr" secondAttribute="bottom" constant="10" id="qet-Ku-ExG"/>
+                            <constraint firstAttribute="trailing" secondItem="l5q-av-4kj" secondAttribute="trailing" constant="10" id="xdZ-3b-cX8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -39,6 +51,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="descriptionLabel" destination="l5q-av-4kj" id="Ey0-ec-kGa"/>
                         <outlet property="photoView" destination="LOf-1h-vYr" id="fEW-V4-aCO"/>
                     </connections>
                 </viewController>

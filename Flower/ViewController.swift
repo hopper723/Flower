@@ -9,12 +9,17 @@
 import UIKit
 import CoreML
 import Vision
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     
     let imagePicker = UIImagePickerController()
+    let wikipediaURl = "https://en.wikipedia.org/w/api.php"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +49,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let request = VNCoreMLRequest(model: model) { (request, error) in
             if let classification = request.results?.first as? VNClassificationObservation {
                 self.navigationItem.title = classification.identifier.capitalized
+                self.requestInfo(flowerName: classification.identifier)
+                
             } else {
-                print("Unable to process image.")
+                print("Unable to classify image.")
             }
         }
         
@@ -56,16 +63,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } catch {
             print("Unable to perform request.")
         }
+    }
+    
+    func requestInfo(flowerName: String) {
+        let parameters : [String:String] = [
+            "format" : "json",
+            "action" : "query",
+            "prop" : "extracts",
+            "exintro" : "",
+            "explaintext" : "",
+            "titles" : flowerName,
+            "indexpageids" : "",
+            "redirects" : "1",
+        ]
         
-//        guard let pixelBuffer = image.pixelBuffer else {
-//            fatalError("No pixel buffer.")
-//        }
-//        do {
-//            let prediction = try FlowerClassifier().prediction(data: pixelBuffer)
-//            navigationItem.title = prediction.classLabel
-//        } catch {
-//            print("Unable to process image.")
-//        }
+        Alamofire.request(wikipediaURl, method: .get, parameters: parameters).validate().responseJSON {
+            (response) in
+            if response.result.isSuccess {
+                let result = JSON(response.result.value!)
+                let pageId = result["query"]["pageids"][0].stringValue
+                let description = result["query"]["pages"][pageId]["extract"].stringValue
+                
+                self.descriptionLabel.text = description
+            }
+        }
     }
     
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
